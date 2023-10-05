@@ -20,6 +20,8 @@ public class ItemRepository {
             em.merge(item);
         }
     }
+    //id 가 없으면 신규로 보고 persist() 실행
+    //id 가 있으면 이미 데이터베이스에 저장된 엔티티를 수정한다고 보고, merge() 를 실행
 
     public Item findOne(Long id){
         return em.find(Item.class, id);

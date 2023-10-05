@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
+//db를 변경하는 메서드보다 조회하는 메서드가 더 많기때문에 여기에 readOnly = true 옵션 작성
 @RequiredArgsConstructor
 public class MemberService {
 
@@ -17,6 +18,7 @@ public class MemberService {
 
     //회원 가입
     @Transactional
+    //db를 변경하는 작업은 readOnly가 아니기 때문에 Transactional 다시 선언
     public Long join(Member member){
         validateDuplicateMember(member);  //중복 회원 검증
         memberRepository.save(member);

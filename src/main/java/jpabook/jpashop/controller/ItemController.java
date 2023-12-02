@@ -1,5 +1,6 @@
 package jpabook.jpashop.controller;
 
+import jpabook.jpashop.controller.Form.BookForm;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.service.ItemService;
@@ -64,6 +65,7 @@ public class ItemController {
 
         Book item = (Book) itemService.findOne(itemId);
 
+        //준영속상태 -> 영속성 컨텍스트에서 관리하지 X
         BookForm form = new BookForm();
         form.setId(item.getId());
         form.setName(item.getName());
@@ -75,6 +77,21 @@ public class ItemController {
         model.addAttribute("form", form);
         return "items/updateItemForm";
     }
+
+    /**
+     * 상품 수정
+    @PostMapping(value = "/items/{itemId}/edit")
+    public String updateItem(@ModelAttribute("form") BookForm form) {
+        Book book = new Book();
+        book.setId(form.getId());
+        book.setName(form.getName());
+        book.setPrice(form.getPrice()); book.setStockQuantity(form.getStockQuantity());
+        book.setAuthor(form.getAuthor());
+        book.setIsbn(form.getIsbn());
+        itemService.saveItem(book);
+        return "redirect:/items";
+    }
+     */
 
     /**
      * 상품 수정, 권장 코드

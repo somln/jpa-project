@@ -1,6 +1,7 @@
 package jpabook.jpashop.controller;
 
 import jakarta.validation.Valid;
+import jpabook.jpashop.controller.Form.MemberForm;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.service.MemberService;
@@ -22,6 +23,7 @@ public class MemberController {
     /**
      * 회원 등록 폼
      */
+
     
     @GetMapping("/memebers/new")
     public String createForm(Model model){

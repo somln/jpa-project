@@ -26,7 +26,7 @@ public class ItemService {
         item.setName(name);
         item.setPrice(price);
         item.setStockQuantity(stockQuantity);
-        //직접 set을 호출하는 것보다 item.change 처럼 entity 내에 변경 메서드를 만다는 것이 좋음
+        //직접 set을 호출하는 것보다 item.change 처럼 entity 내에 변경 메서드를 만드는 것이 좋음
     }
 
     public List<Item> findItems() {
